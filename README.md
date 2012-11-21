@@ -138,6 +138,41 @@
 
 * Semantics
 
+  There are a lot of well-written guides on semantics:
+
+  * <a href="http://www.html5rocks.com/en/features/semantics" title="HTML5 Rocks" target="_blank">HTML5 Rocks </a>
+  * <a href="http://diveintohtml5.info/" title="Dive into HTML5"  target="_blank">Dive into HTML5</a>
+  * <a href="http://learn.shayhowe.com/html-css/elements-semantics" title="Elements and Semantics" target="_blank">Shay Howe on Elements and Semantics</a>
+
+* Stop using and remove any of these obsolete and deprecated elements:
+
+  **Obsolete Elements**
+  * frameset
+  * frame
+  * noframe
+  * acronym (replaced by abbr)
+  * applet (replaced by object)
+  * dir (replaced by ul)
+
+  **Deprecated Elements**
+  * basefont
+  * big
+  * center
+  * font
+  * s
+  * strike
+  * tt
+  * u
+
+* These attributes are no longer valid:
+  * align
+  * link, vlink, alink, and text attributes on the body tag
+  * bgcolor
+  * height and width
+  * scrolling on the iframe element
+  * valign
+  * hspace and vspace
+  * cellpadding, cellspacing, and border on table
 
 * Omitting file type and media type is valid for the link tag.
 
