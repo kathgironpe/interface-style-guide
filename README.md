@@ -3,13 +3,13 @@
 
 ## Table of Contents
 
-* [CSS Coding Style](#css-coding-style)
+* [CSS Code Style](#css-code-style)
 * [CSS File Organization](#css-file-organization)
-* [HTML5 Coding Style](#html5-coding-style)
+* [HTML5 Code Style](#html5-code-style)
 * [Cross-browser Compatibility](#cross-browser-compatibility)
 
 
-## CSS Coding Style
+## CSS Code Style
 
 * Use soft-tabs with a two space indent.
 * Put spaces after : in property declarations.
@@ -26,9 +26,38 @@
     .s-header
   ```
 
+* Use hyphen or underscore for naming css files. Do not use CamelCase.
+
+  ```
+    // Bad
+    SectionName.scss.erb
+
+    // Good
+    section-name.scss.erb
+  ```
+* Use ERB extension when naming css file if SCSS preprocessor is used for a Ruby project. This is often needed if you want to use the asset_path for your images.
+
+  ```
+    // Bad
+    application.scss
+
+    // Good
+    application.scss.erb
+  ```
+* Recommended: use the asset_path helper for images.
+
+  ```css
+    // Bad
+    background: url('/assets/images/test.png');
+
+    // Good
+    background: url('<%= asset_path('test.png') %>');
+  ```
+
 * Use !important rule when necessary. Sometimes it is not necessary when your style definitions are ordered properly.
 * Limit **depth of applicability** by using fewer selectors, avoiding ID selectors and relying less on html structure.
-   ```css
+
+  ```css
     // Bad
     #main #sidebar p img {
       background: #FFF;
@@ -57,8 +86,39 @@
 
 ## CSS File Organization
 
+  ```
+    app/assets/stylesheets
+    ├── components
+    │   ├── buttons.scss.erb
+    |   ├── forms.scss.erb
+    │   ├── boxes.scss.erb
+    │   └── lists.scss.erb
+    ├── base
+    │   └── normalize.scss.erb
+    ├── ie
+    │   ├── ie8.scss.erb
+    │   └── ie9.scss.erb
+    ├── mobile
+    │   └── layout.scss.erb
+    ├── layouts
+    │   ├── grid.scss.erb
+    │   └── structure.scss.erb
+    ├── themes
+    │   ├── blue.scss.erb
+    │   └── black.scss.erb
+    ├── mixins
+    │   ├── _corners.scss
+    │   └── _linear-gradients.scss
+    │   └── _animation.scss
+    ├── sections
+    │   ├── blog.scss.erb
+    │   └── lists.scss.erb
+    └── globals
+        ├── colors.scss
+        └── typography.scss
+  ```
 
-## HTML5 Coding Style
+## HTML5 Code Style
 
 * Use soft-tabs with a two space indent.
 
