@@ -218,7 +218,7 @@
 
 * Use **placeholder** attribute for providing hints and use <a href="https://github.com/mathiasbynens/jquery-placeholder" title="jQuery Placeholder">jQuery Placeholder</a> for browsers that do not support it.
 
-   ```
+   ```html
     // bad
     <input id="email" type="email" name="email" data-hint="user@example.com">
 
@@ -298,52 +298,6 @@
   </table>
 
 * Isolate IE filters and hacks into new files, e.g., **ie8.css** for Internet Explorer 8. Not all internet explorer browsers have an issue so do not create an ie.css file. Specifying versions help. There'll come a day when there's no need to support these browsers and all you have to do is delete the file and references to it.
-
-* Avoid the use of hacks for Internet explorer. Find ways to fix the issue without using any hack, e.g., using child selectors or conditional comments.
-
-  The **star html hack** is often used for IE7 browser.
-   ```css
-    #something {
-      * margin-top: 10px;
-    }
-   ```
-
-  It is best to just use conditional comments.
-   ```css
-    // on ie7.css
-    #something {
-      margin-top: 10px !important;
-    }
-   ```
-
-  The important rule will override previously defined rule.
-
-  The underscore hack is used for IE6 browser.
-   ```css
-    // on style.css
-    #something {
-      _margin-top: 10px;
-    }
-   ```
-
-   This may work better because IE6 does not read child selector.
-   ```css
-    // on style.css
-    #something {
-      margin-top: 10px;
-    }
-
-    body >  #something {
-      margin-top: 0px;
-    }
-   ```
-   But this is the recommended fix:
-   ```css
-    // on ie6.css
-    #something {
-      margin-top: 10px !important;
-    }
-   ```
 
 ## References
 
