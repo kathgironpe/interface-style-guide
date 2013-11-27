@@ -1,54 +1,49 @@
-<!doctype html>
+<!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="chrome=1">
-    <title>Interface Style Guide for Ruby Projects by bridgeutopia</title>
-    <link rel="stylesheet" href="stylesheets/styles.css">
-    <link rel="stylesheet" href="stylesheets/pygment_trac.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
-    <script src="javascripts/main.js"></script>
-    <!--[if lt IE 9]>
-      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
-    <![endif]-->
-    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
 
+  <head>
+    <meta charset='utf-8' />
+    <meta http-equiv="X-UA-Compatible" content="chrome=1" />
+    <meta name="description" content="Interface Style Guide for Ruby Projects : An Interface style guide for Ruby projects." />
+
+    <link rel="stylesheet" type="text/css" media="screen" href="stylesheets/stylesheet.css">
+
+    <title>Interface Style Guide for Ruby Projects</title>
   </head>
+
   <body>
 
-      <header>
-        <h1>Interface Style Guide for Ruby Projects</h1>
-        <p>An Interface style guide for Ruby projects.</p>
-      </header>
+    <!-- HEADER -->
+    <div id="header_wrap" class="outer">
+        <header class="inner">
+          <a id="forkme_banner" href="https://github.com/katgironpe/interface-style-guide">View on GitHub</a>
 
-      <div id="banner">
-        <span id="logo"></span>
+          <h1 id="project_title">Interface Style Guide for Ruby Projects</h1>
+          <h2 id="project_tagline">An Interface style guide for Ruby projects.</h2>
 
-        <a href="https://github.com/bridgeutopia/interface-style-guide" class="button fork"><strong>View On GitHub</strong></a>
-        <div class="downloads">
-          <span>Downloads:</span>
-          <ul>
-            <li><a href="https://github.com/bridgeutopia/interface-style-guide/zipball/master" class="button">ZIP</a></li>
-            <li><a href="https://github.com/bridgeutopia/interface-style-guide/tarball/master" class="button">TAR</a></li>
-          </ul>
-        </div>
-      </div><!-- end banner -->
+            <section id="downloads">
+              <a class="zip_download_link" href="https://github.com/katgironpe/interface-style-guide/zipball/master">Download this project as a .zip file</a>
+              <a class="tar_download_link" href="https://github.com/katgironpe/interface-style-guide/tarball/master">Download this project as a tar.gz file</a>
+            </section>
+        </header>
+    </div>
 
-    <div class="wrapper">
-      <nav>
-        <ul></ul>
-      </nav>
-      <section>
-        <h1>Interface Style Guide</h1>
+    <!-- MAIN CONTENT -->
+    <div id="main_content_wrap" class="outer">
+      <section id="main_content" class="inner">
+        <h1>
+<a name="interface-style-guide" class="anchor" href="#interface-style-guide"><span class="octicon octicon-link"></span></a>Interface Style Guide</h1>
 
-<h2>Table of Contents</h2>
+<h2>
+<a name="table-of-contents" class="anchor" href="#table-of-contents"><span class="octicon octicon-link"></span></a>Table of Contents</h2>
 
 <ul>
 <li><a href="#css-code-style">CSS Code Style</a></li>
 <li><a href="#css-file-organization">CSS File Organization</a></li>
 <li><a href="#html5-code-style">HTML5 Code Style</a></li>
 <li><a href="#cross-browser-compatibility">Cross-browser Compatibility</a></li>
-</ul><h2>CSS Code Style</h2>
+</ul><h2>
+<a name="css-code-style" class="anchor" href="#css-code-style"><span class="octicon octicon-link"></span></a>CSS Code Style</h2>
 
 <ul>
 <li>Use soft-tabs with a two space indent.</li>
@@ -59,74 +54,75 @@
 <li>
 <p>Use hyphen for naming classes.</p>
 
-<div class="highlight"><pre><span class="o">//</span> <span class="nt">Bad</span>
-<span class="nc">.s_header</span>
+<div class="highlight highlight-css"><pre>  <span class="o">//</span> <span class="nt">Bad</span>
+  <span class="nc">.s_header</span>
 
-<span class="o">//</span> <span class="nt">Good</span>
-<span class="nc">.s-header</span>
+  <span class="o">//</span> <span class="nt">Good</span>
+  <span class="nc">.s-header</span>
 </pre></div>
 </li>
 <li>
 <p>Use hyphen or underscore for naming css files. Do not use CamelCase.</p>
 
-<pre><code>// Bad
-SectionName.scss.erb
+<pre><code>  // Bad
+  SectionName.scss.erb
 
-// Good
-section-name.scss.erb
+  // Good
+  section-name.scss.erb
 </code></pre>
 </li>
 <li>
 <p>Use ERB extension when naming css file if SCSS preprocessor is used for a Ruby project. This is often needed if you want to use the asset_path for your images.</p>
 
-<pre><code>// Bad
-application.scss
+<pre><code>  // Bad
+  application.scss
 
-// Good
-application.scss.erb
+  // Good
+  application.scss.erb
 </code></pre>
 </li>
 <li>
 <p>Recommended: use the asset_path helper for images.</p>
 
-<div class="highlight"><pre><span class="o">//</span> <span class="nt">Bad</span>
-<span class="nt">background</span><span class="o">:</span> <span class="nt">url</span><span class="o">(</span><span class="s1">'/assets/images/test.png'</span><span class="o">);</span>
+<div class="highlight highlight-css"><pre>  <span class="o">//</span> <span class="nt">Bad</span>
+  <span class="nt">background</span><span class="o">:</span> <span class="nt">url</span><span class="o">(</span><span class="s1">'/assets/images/test.png'</span><span class="o">);</span>
 
-<span class="o">//</span> <span class="nt">Good</span>
-<span class="nt">background</span><span class="o">:</span> <span class="nt">url</span><span class="o">(</span><span class="s1">'&lt;%= asset_path('</span><span class="nt">test</span><span class="nc">.png</span><span class="s1">') %&gt;'</span><span class="o">);</span>
+  <span class="o">//</span> <span class="nt">Good</span>
+  <span class="nt">background</span><span class="o">:</span> <span class="nt">url</span><span class="o">(</span><span class="s1">'&lt;%= asset_path('</span><span class="nt">test</span><span class="nc">.png</span><span class="s1">') %&gt;'</span><span class="o">);</span>
 </pre></div>
 </li>
 <li><p>Use !important rule when necessary. Sometimes it is not necessary when your style definitions are ordered properly.</p></li>
 <li>
 <p>Limit <strong>depth of applicability</strong> by using fewer selectors, avoiding ID selectors and relying less on html structure.</p>
 
-<div class="highlight"><pre><span class="o">//</span> <span class="nt">Bad</span>
-<span class="nf">#main</span> <span class="nf">#sidebar</span> <span class="nt">p</span> <span class="nt">img</span> <span class="p">{</span>
-  <span class="k">background</span><span class="o">:</span> <span class="m">#FFF</span><span class="p">;</span>
-  <span class="k">border</span><span class="o">:</span> <span class="m">1px</span> <span class="k">solid</span> <span class="m">#DDD</span><span class="p">;</span>
-  <span class="k">padding</span><span class="o">:</span> <span class="m">5px</span><span class="p">;</span>
-<span class="p">}</span>
+<div class="highlight highlight-css"><pre>  <span class="o">//</span> <span class="nt">Bad</span>
+  <span class="nf">#main</span> <span class="nf">#sidebar</span> <span class="nt">p</span> <span class="nt">img</span> <span class="p">{</span>
+    <span class="k">background</span><span class="o">:</span> <span class="m">#FFF</span><span class="p">;</span>
+    <span class="k">border</span><span class="o">:</span> <span class="m">1px</span> <span class="k">solid</span> <span class="m">#DDD</span><span class="p">;</span>
+    <span class="k">padding</span><span class="o">:</span> <span class="m">5px</span><span class="p">;</span>
+  <span class="p">}</span>
 
-<span class="o">//</span> <span class="nt">Good</span>
+  <span class="o">//</span> <span class="nt">Good</span>
 
-<span class="nf">#sidebar</span> <span class="nt">img</span> <span class="p">{</span>
-  <span class="k">background</span><span class="o">:</span> <span class="m">#FFF</span><span class="p">;</span>
-  <span class="k">border</span><span class="o">:</span> <span class="m">1px</span> <span class="k">solid</span> <span class="m">#DDD</span><span class="p">;</span>
-  <span class="k">padding</span><span class="o">:</span> <span class="m">5px</span><span class="p">;</span>
-<span class="p">}</span>
+  <span class="nf">#sidebar</span> <span class="nt">img</span> <span class="p">{</span>
+    <span class="k">background</span><span class="o">:</span> <span class="m">#FFF</span><span class="p">;</span>
+    <span class="k">border</span><span class="o">:</span> <span class="m">1px</span> <span class="k">solid</span> <span class="m">#DDD</span><span class="p">;</span>
+    <span class="k">padding</span><span class="o">:</span> <span class="m">5px</span><span class="p">;</span>
+  <span class="p">}</span>
 
-<span class="o">//</span> <span class="nt">Good</span>
+  <span class="o">//</span> <span class="nt">Good</span>
 
-<span class="nt">Add</span> <span class="nt">a</span> <span class="nt">new</span> <span class="nt">class</span> <span class="nt">for</span> <span class="nt">image</span> <span class="nt">frame</span> <span class="nt">which</span> <span class="nt">can</span> <span class="nt">be</span> <span class="nt">applied</span> <span class="nt">to</span> <span class="nt">other</span> <span class="nt">images</span> <span class="nt">that</span> <span class="nt">are</span> <span class="nt">not</span> <span class="nt">within</span> <span class="nt">the</span> <span class="nt">sidebar</span>
+  <span class="nt">Add</span> <span class="nt">a</span> <span class="nt">new</span> <span class="nt">class</span> <span class="nt">for</span> <span class="nt">image</span> <span class="nt">frame</span> <span class="nt">which</span> <span class="nt">can</span> <span class="nt">be</span> <span class="nt">applied</span> <span class="nt">to</span> <span class="nt">other</span> <span class="nt">images</span> <span class="nt">that</span> <span class="nt">are</span> <span class="nt">not</span> <span class="nt">within</span> <span class="nt">the</span> <span class="nt">sidebar</span>
 
-<span class="nc">.image-frame</span> <span class="p">{</span>
-  <span class="k">background</span><span class="o">:</span> <span class="m">#FFF</span><span class="p">;</span>
-  <span class="k">border</span><span class="o">:</span> <span class="m">1px</span> <span class="k">solid</span> <span class="m">#DDD</span><span class="p">;</span>
-  <span class="k">padding</span><span class="o">:</span> <span class="m">5px</span><span class="p">;</span>
-<span class="p">}</span>
+  <span class="nc">.image-frame</span> <span class="p">{</span>
+    <span class="k">background</span><span class="o">:</span> <span class="m">#FFF</span><span class="p">;</span>
+    <span class="k">border</span><span class="o">:</span> <span class="m">1px</span> <span class="k">solid</span> <span class="m">#DDD</span><span class="p">;</span>
+    <span class="k">padding</span><span class="o">:</span> <span class="m">5px</span><span class="p">;</span>
+  <span class="p">}</span>
 </pre></div>
 </li>
-</ul><h2>CSS File Organization</h2>
+</ul><h2>
+<a name="css-file-organization" class="anchor" href="#css-file-organization"><span class="octicon octicon-link"></span></a>CSS File Organization</h2>
 
 <pre><code>    app/assets/stylesheets
     ├── components
@@ -159,7 +155,8 @@ application.scss.erb
         └── typography.scss
 </code></pre>
 
-<h2>HTML5 Code Style</h2>
+<h2>
+<a name="html5-code-style" class="anchor" href="#html5-code-style"><span class="octicon octicon-link"></span></a>HTML5 Code Style</h2>
 
 <ul>
 <li><p>Use soft-tabs with a two space indent.</p></li>
@@ -168,12 +165,12 @@ application.scss.erb
 
 <p>In ERB (Ruby) or HTML:</p>
 
-<div class="highlight"><pre><span class="cp">&lt;!DOCTYPE html&gt;</span>
+<div class="highlight highlight-html"><pre>  <span class="cp">&lt;!DOCTYPE html&gt;</span>
 </pre></div>
 
 <p>In HAML (Ruby):</p>
 
-<div class="highlight"><pre><span class="o">!!!</span> <span class="mi">5</span>
+<div class="highlight highlight-ruby"><pre>  <span class="o">!!!</span> <span class="mi">5</span>
 </pre></div>
 </li>
 <li>
@@ -230,57 +227,58 @@ application.scss.erb
 <li>
 <p>Omitting file type and media type is valid for the link tag.</p>
 
-<div class="highlight"><pre><span class="nt">&lt;link</span> <span class="na">href=</span><span class="s">'/assets/style.css'</span> <span class="na">rel=</span><span class="s">'stylesheet'</span><span class="nt">/&gt;</span>
+<div class="highlight highlight-html"><pre>  <span class="nt">&lt;link</span> <span class="na">href=</span><span class="s">'/assets/style.css'</span> <span class="na">rel=</span><span class="s">'stylesheet'</span><span class="nt">/&gt;</span>
 </pre></div>
 </li>
 <li>
 <p>Omitting file type is valid for the javascript link tag.</p>
 
-<div class="highlight"><pre><span class="nt">&lt;script </span><span class="na">src=</span><span class="s">'/assets/application.js'</span> <span class="nt">/&gt;</span>
+<div class="highlight highlight-html"><pre>  <span class="nt">&lt;script </span><span class="na">src=</span><span class="s">'/assets/application.js'</span> <span class="nt">/&gt;</span>
 </pre></div>
 </li>
 <li>
 <p>The header tag, footer and other new tags can be used within a section.</p>
 
-<div class="highlight"><pre><span class="nt">&lt;section&gt;</span>
-  <span class="nt">&lt;header&gt;</span>
-    <span class="nt">&lt;h1&gt;</span>Change Quotation<span class="nt">&lt;/h1&gt;</span>
-  <span class="nt">&lt;/header&gt;</span>
-<span class="nt">&lt;blockquote&gt;</span>
-  To improve is to change; to be perfect is to change often.
-    - Winston Churchill
-<span class="nt">&lt;/blockquote&gt;</span>
-<span class="nt">&lt;/section&gt;</span>
+<div class="highlight highlight-html"><pre>  <span class="nt">&lt;section&gt;</span>
+    <span class="nt">&lt;header&gt;</span>
+      <span class="nt">&lt;h1&gt;</span>Change Quotation<span class="nt">&lt;/h1&gt;</span>
+    <span class="nt">&lt;/header&gt;</span>
+  <span class="nt">&lt;blockquote&gt;</span>
+    To improve is to change; to be perfect is to change often.
+      - Winston Churchill
+  <span class="nt">&lt;/blockquote&gt;</span>
+  <span class="nt">&lt;/section&gt;</span>
 </pre></div>
 </li>
 <li>
 <p>The article tag is ideal for actual content. A section can have many articles and articles can have many sections.</p>
 
-<pre><code>&lt;article&gt;
-  &lt;header&gt;
-    &lt;h1&gt;Redemption Song&lt;/h1&gt;
-  &lt;/header&gt;
-    &lt;p&gt;None but ourselves can free our minds.&lt;/p&gt;
-  &lt;footer&gt;
-    &lt;p&gt;
-      Song by Bob Marley.
-      Released: October 1980
-    &lt;/p&gt;
-  &lt;/footer&gt;
-&lt;/article&gt;
+<pre><code>  &lt;article&gt;
+    &lt;header&gt;
+      &lt;h1&gt;Redemption Song&lt;/h1&gt;
+    &lt;/header&gt;
+      &lt;p&gt;None but ourselves can free our minds.&lt;/p&gt;
+    &lt;footer&gt;
+      &lt;p&gt;
+        Song by Bob Marley.
+        Released: October 1980
+      &lt;/p&gt;
+    &lt;/footer&gt;
+  &lt;/article&gt;
 </code></pre>
 </li>
 <li>
 <p>Use <strong>placeholder</strong> attribute for providing hints and use <a href="https://github.com/mathiasbynens/jquery-placeholder" title="jQuery Placeholder">jQuery Placeholder</a> for browsers that do not support it.</p>
 
-<pre><code>// bad
-&lt;input id="email" type="email" name="email" data-hint="user@example.com"&gt;
+<div class="highlight highlight-html"><pre>// bad
+<span class="nt">&lt;input</span> <span class="na">id=</span><span class="s">"email"</span> <span class="na">type=</span><span class="s">"email"</span> <span class="na">name=</span><span class="s">"email"</span> <span class="na">data-hint=</span><span class="s">"user@example.com"</span><span class="nt">&gt;</span>
 
 // good
-&lt;input id="email" type="email" name="email" placeholder="user@example.com"&gt;
-</code></pre>
+<span class="nt">&lt;input</span> <span class="na">id=</span><span class="s">"email"</span> <span class="na">type=</span><span class="s">"email"</span> <span class="na">name=</span><span class="s">"email"</span> <span class="na">placeholder=</span><span class="s">"user@example.com"</span><span class="nt">&gt;</span>
+</pre></div>
 </li>
-</ul><h2>Cross-browser Compatibility</h2>
+</ul><h2>
+<a name="cross-browser-compatibility" class="anchor" href="#cross-browser-compatibility"><span class="octicon octicon-link"></span></a>Cross-browser Compatibility</h2>
 
 <ul>
 <li>
@@ -305,104 +303,57 @@ application.scss.erb
 <li>
 <p><strong>Conditional Comments Syntax Table</strong></p>
 
-<table cellspacing="0" cellpadding="0" border="0">
+<table cellspacing="0" cellpadding="0" border="0"><tbody>
 <tr>
 <th>Item</th>
-    <th>Example</th>
-    <th>Comment</th>
-  </tr>
+      <th>Example</th>
+      <th>Comment</th>
+    </tr>
 <tr>
 <td>!</td>
-    <td>[if !IE]</td>
-    <td>The NOT operator. This is placed immediately in front of the <em>feature</em>, <em>operator</em>, or <em>subexpression</em> to reverse the Boolean meaning of the expression.</td>
-  </tr>
+      <td>[if !IE]</td>
+      <td>The NOT operator. This is placed immediately in front of the <em>feature</em>, <em>operator</em>, or <em>subexpression</em> to reverse the Boolean meaning of the expression.</td>
+    </tr>
 <tr>
 <td>lt</td>
-    <td>[if lt IE 5.5]</td>
-    <td>The less-than operator. Returns true if the first argument is less than the second argument.</td>
-  </tr>
+      <td>[if lt IE 5.5]</td>
+      <td>The less-than operator. Returns true if the first argument is less than the second argument.</td>
+    </tr>
 <tr>
 <td>lte</td>
-    <td>[if lte IE 6]</td>
-    <td>The less-than or equal operator. Returns true if the first argument is less than or equal to the second argument.</td>
-  </tr>
+      <td>[if lte IE 6]</td>
+      <td>The less-than or equal operator. Returns true if the first argument is less than or equal to the second argument.</td>
+    </tr>
 <tr>
 <td>gt</td>
-    <td>[if gt IE 5]</td>
-    <td>The greater-than operator. Returns true if the first argument is greater than the second argument.</td>
-  </tr>
+      <td>[if gt IE 5]</td>
+      <td>The greater-than operator. Returns true if the first argument is greater than the second argument.</td>
+    </tr>
 <tr>
 <td>gte</td>
-    <td>[if gte IE 7]</td>
-    <td>The greater-than or equal operator. Returns true if the first argument is greater than or equal to the second argument.</td>
+      <td>[if gte IE 7]</td>
+      <td>The greater-than or equal operator. Returns true if the first argument is greater than or equal to the second argument.</td>
 </tr>
 <tr>
 <td>( )</td>
-    <td>[if !(IE 7)]</td>
-    <td>Subexpression operators. Used in conjunction with boolean operators to create more complex expressions. </td>
-  </tr>
+      <td>[if !(IE 7)]</td>
+      <td>Subexpression operators. Used in conjunction with boolean operators to create more complex expressions. </td>
+    </tr>
 <tr>
 <td>&amp;</td>
 <td>[if (gt IE 5)&amp;(lt IE 7)]</td>
-    <td>The AND operator. Returns true if all subexpressions evaluate to true</td>
-  </tr>
+      <td>The AND operator. Returns true if all subexpressions evaluate to true</td>
+    </tr>
 <tr>
 <td>|</td>
-    <td>[if (IE 6)|(IE 7)]</td>
-    <td>The OR operator. Returns true if any of the subexpressions evaluates to true.</td>
-  </tr>
-</table>
+      <td>[if (IE 6)|(IE 7)]</td>
+      <td>The OR operator. Returns true if any of the subexpressions evaluates to true.</td>
+    </tr>
+</tbody></table>
 </li>
 <li><p>Isolate IE filters and hacks into new files, e.g., <strong>ie8.css</strong> for Internet Explorer 8. Not all internet explorer browsers have an issue so do not create an ie.css file. Specifying versions help. There'll come a day when there's no need to support these browsers and all you have to do is delete the file and references to it.</p></li>
-<li>
-<p>Avoid the use of hacks for Internet explorer. Find ways to fix the issue without using any hack, e.g., using child selectors or conditional comments.</p>
-
-<p>The <strong>star html hack</strong> is often used for IE7 browser.</p>
-
-<div class="highlight"><pre><span class="nf">#something</span> <span class="p">{</span>
-  <span class="o">*</span> <span class="k">margin-top</span><span class="o">:</span> <span class="m">10px</span><span class="p">;</span>
-<span class="p">}</span>
-</pre></div>
-
-<p>It is best to just use conditional comments.</p>
-
-<div class="highlight"><pre><span class="o">//</span> <span class="nt">on</span> <span class="nt">ie7</span><span class="nc">.css</span>
-<span class="nf">#something</span> <span class="p">{</span>
-  <span class="k">margin-top</span><span class="o">:</span> <span class="m">10px</span> <span class="cp">!important</span><span class="p">;</span>
-<span class="p">}</span>
-</pre></div>
-
-<p>The important rule will override previously defined rule.</p>
-
-<p>The underscore hack is used for IE6 browser.</p>
-
-<div class="highlight"><pre><span class="o">//</span> <span class="nt">on</span> <span class="nt">style</span><span class="nc">.css</span>
-<span class="nf">#something</span> <span class="p">{</span>
-  <span class="n">_margin</span><span class="o">-</span><span class="k">top</span><span class="o">:</span> <span class="m">10px</span><span class="p">;</span>
-<span class="p">}</span>
-</pre></div>
-
-<p>This may work better because IE6 does not read child selector.</p>
-
-<div class="highlight"><pre><span class="o">//</span> <span class="nt">on</span> <span class="nt">style</span><span class="nc">.css</span>
-<span class="nf">#something</span> <span class="p">{</span>
-  <span class="k">margin-top</span><span class="o">:</span> <span class="m">10px</span><span class="p">;</span>
-<span class="p">}</span>
-
-<span class="nt">body</span> <span class="o">&gt;</span>  <span class="nf">#something</span> <span class="p">{</span>
-  <span class="k">margin-top</span><span class="o">:</span> <span class="m">0px</span><span class="p">;</span>
-<span class="p">}</span>
-</pre></div>
-
-<p>But this is the recommended fix:</p>
-
-<div class="highlight"><pre><span class="o">//</span> <span class="nt">on</span> <span class="nt">ie6</span><span class="nc">.css</span>
-<span class="nf">#something</span> <span class="p">{</span>
-  <span class="k">margin-top</span><span class="o">:</span> <span class="m">10px</span> <span class="cp">!important</span><span class="p">;</span>
-<span class="p">}</span>
-</pre></div>
-</li>
-</ul><h2>References</h2>
+</ul><h2>
+<a name="references" class="anchor" href="#references"><span class="octicon octicon-link"></span></a>References</h2>
 
 <p><a href="https://github.com/styleguide" target="_blank">HTML5 for Web Designers by Jeremy Keith</a></p>
 
@@ -410,21 +361,26 @@ application.scss.erb
 
 <p><a href="http://smacss.com" target="_blank">Scalable and Modular Architechture for CSS by Jonathan Snook</a></p>
 
-<h2>Contributors</h2>
+<h2>
+<a name="contributors" class="anchor" href="#contributors"><span class="octicon octicon-link"></span></a>Contributors</h2>
 
 <h4>
-<a href="http://blog.bridgeutopiaweb.com" target="_blank"> Katherine G. Pe </a>, Software Developer</h4>
+<a name="-katherine-g-pe--software-developer" class="anchor" href="#-katherine-g-pe--software-developer"><span class="octicon octicon-link"></span></a><a href="http://blog.bridgeutopiaweb.com" target="_blank"> Katherine G. Pe </a>, Software Developer</h4>
 
 <p>This style guide was written specifically for projects I work on or help with. This is clearly written to document good style and promote it for a better web.</p>
 
 <p>© 2012 Katherine G. Pe. Released under the <a href="http://opensource.org/licenses/mit-license.php" target="_blank"> MIT License</a>.</p>
       </section>
-      <footer>
-        <p>Project maintained by <a href="https://github.com/bridgeutopia">bridgeutopia</a></p>
-        <p><small>Hosted on GitHub Pages &mdash; Theme by <a href="http://twitter.com/#!/michigangraham">mattgraham</a></small></p>
+    </div>
+
+    <!-- FOOTER  -->
+    <div id="footer_wrap" class="outer">
+      <footer class="inner">
+        <p class="copyright">Interface Style Guide for Ruby Projects maintained by <a href="https://github.com/katgironpe">katgironpe</a></p>
+        <p>Published with <a href="http://pages.github.com">GitHub Pages</a></p>
       </footer>
     </div>
-    <!--[if !IE]><script>fixScale(document);</script><![endif]-->
+
               <script type="text/javascript">
             var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
             document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
@@ -435,6 +391,7 @@ application.scss.erb
             pageTracker._trackPageview();
             } catch(err) {}
           </script>
+
 
   </body>
 </html>
